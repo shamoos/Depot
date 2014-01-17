@@ -9,7 +9,7 @@ class Product < ActiveRecord::Base
   validates :title, length: { minimum: 10 }
   validates :image_url, allow_blank: true, format: { 
     with: %r{\.(gif|jpg|png)\z}i, 
-    message: 'URL должен указывать на изображение в формате GIF, JPG или PNG!'
+    message: 'URL must end JPG, PNG or GIF!'
   }
   private
   
@@ -17,7 +17,7 @@ class Product < ActiveRecord::Base
     if line_items.empty?
       return true
     else
-      errors.add(:base, 'существуют товарные позиции!!!')
+      errors.add(:base, 'already exist!!!')
       return false
     end
   end
