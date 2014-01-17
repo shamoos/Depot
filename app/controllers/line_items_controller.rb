@@ -31,8 +31,9 @@ class LineItemsController < ApplicationController
     respond_to do |format|
       
       if @line_item.save
-        format.html { redirect_to @line_item.cart }
-        format.json { render action: 'show', status: :created, location: @line_item }
+        format.html { redirect_to store_index_url }
+	format.js { @current_item = @line_item }
+	format.json { render action: 'show', status: :created, location: @line_item }
       else
         format.html { render action: 'new' }
         format.json { render json: @line_item.errors, status: :unprocessable_entity }
@@ -60,8 +61,10 @@ class LineItemsController < ApplicationController
     @line_item.destroy
     @cart = current_cart
     respond_to do |format|
-      format.html { redirect_to @cart }
-      format.json { head :no_content }
+      format.html { redirect_to store_index_url }
+      format.js { @cart }
+      format.json { render action: 'show' }
+      
     end
   end
 

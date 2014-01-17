@@ -3,6 +3,7 @@
 <html>
 <head>
 <!-- START_HIGHLIGHT -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>Pragprog Books Online Store</title>
 <!-- END_HIGHLIGHT -->
   <!-- <label id="code.slt"/> --><%= stylesheet_link_tag    "application", media: "all",
@@ -19,11 +20,14 @@
   </div>
   <div id="columns">
     <div id="side">
+      <div id="cart">
+	<%= render @cart %>
+      </div>
       <ul>
-        <li><a href="http://www....">Home</a></li>
+        <li><a href="http://bpm.pg-nhk.ru:3000/>Home</a></li>
         <li><a href="http://www..../faq">Questions</a></li>
         <li><a href="http://www..../news">News</a></li>
-        <li><a href="http://www..../contact">Contact</a></li>
+        <li><a href="http://www..../cont">Контакты</a></li>
       </ul>
     </div>
     <div id="main">
